@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
 
 
-class FireBall(private var position: Vector2, private var velocity: Vector2): GameObject {
+class FireBall(var position: Vector2, var velocity: Vector2): GameObject {
 
     companion object {
         lateinit var texture: Texture
@@ -50,6 +50,10 @@ class FireBall(private var position: Vector2, private var velocity: Vector2): Ga
             velocity.y = -velocity.y
             position.y = 0f
         }
+    }
+
+    fun updatePosition(positionNew: Vector2) {
+        position = positionNew
     }
 
     override fun dispose() {
